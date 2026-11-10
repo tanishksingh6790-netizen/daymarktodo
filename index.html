@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f6f7fb">
+  <title>Daymark — To-Do List</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="Daymark home"><span class="brand-mark" aria-hidden="true">✓</span><span>daymark</span></a>
+      <span class="today-label" id="today-label"></span>
+    </header>
+
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">A little progress adds up</p>
+      <h1 id="page-title">Make room for<br><span>what matters.</span></h1>
+      <p class="intro-copy">Keep your day clear, one task at a time.</p>
+    </section>
+
+    <section class="task-card" aria-label="To-do list">
+      <form class="task-form" id="task-form">
+        <label class="sr-only" for="task-input">New task</label>
+        <input id="task-input" name="task" type="text" maxlength="160" placeholder="What needs to get done?" autocomplete="off" required>
+        <button class="add-button" type="submit"><span aria-hidden="true">＋</span> Add task</button>
+      </form>
+
+      <div class="list-heading">
+        <div>
+          <h2>Your tasks</h2>
+          <p id="task-summary">A fresh start is waiting.</p>
+        </div>
+        <div class="filters" role="group" aria-label="Filter tasks">
+          <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Pending</button>
+          <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Done</button>
+        </div>
+      </div>
+
+      <ul class="task-list" id="task-list" aria-live="polite"></ul>
+      <div class="empty-state" id="empty-state">
+        <span class="empty-icon" aria-hidden="true">✳</span>
+        <p class="empty-title">Nothing on the list yet</p>
+        <p class="empty-copy">Add a task above and make today yours.</p>
+      </div>
+      <footer class="card-footer"><span class="footer-dot" aria-hidden="true"></span><span>Your tasks stay saved on this device</span><button id="clear-completed" class="clear-button" type="button" hidden>Clear completed</button></footer>
+    </section>
+    <p class="page-note">Small steps. Good days.</p>
+  </main>
+
+  <dialog class="edit-dialog" id="edit-dialog" aria-labelledby="edit-title">
+    <form id="edit-form" method="dialog">
+      <p class="eyebrow">Make it just right</p>
+      <h2 id="edit-title">Edit your task</h2>
+      <label class="sr-only" for="edit-input">Task description</label>
+      <input id="edit-input" type="text" maxlength="160" required>
+      <div class="dialog-actions">
+        <button class="cancel-button" type="button" id="cancel-edit">Cancel</button>
+        <button class="add-button" type="submit">Save changes</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
